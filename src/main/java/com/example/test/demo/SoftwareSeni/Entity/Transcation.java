@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.criteria.CriteriaBuilder;
 
 @Data
 @AllArgsConstructor
@@ -19,9 +20,18 @@ public class Transcation {
 
     @GeneratedValue
     @javax.persistence.Id
+    private Integer id;
     private Long parent_id;
     private String type;
     private Double amount;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Long getParent_id() {
         return parent_id;
