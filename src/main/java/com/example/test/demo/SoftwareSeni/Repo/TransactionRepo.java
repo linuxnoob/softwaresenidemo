@@ -10,7 +10,7 @@ import java.util.List;
 
 @RepositoryRestResource
 public interface TransactionRepo extends JpaRepository<Transcation, Long> {
-    List<Transcation> findAllById(String id);
+    List<Transcation> findAllById(Long id);
 
     @Query("Select t.parent_id from Transcation t where t.type like %:type%")
     List<String> findTypeTransactionContaining(String type);

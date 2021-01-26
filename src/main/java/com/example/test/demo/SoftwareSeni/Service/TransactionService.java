@@ -22,7 +22,7 @@ public class TransactionService extends HibernateDaoSupport {
         return transactionRepo.findAll();
     }
 
-    public List<Transcation> getAllTRXByID(String id){
+    public List<Transcation> getAllTRXByID(Long id){
         return transactionRepo.findAllById(id);
     }
 

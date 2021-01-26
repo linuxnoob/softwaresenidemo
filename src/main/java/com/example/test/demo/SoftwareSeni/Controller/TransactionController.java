@@ -5,6 +5,7 @@ import com.example.test.demo.SoftwareSeni.Entity.Transcation;
 import com.example.test.demo.SoftwareSeni.Service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,9 +21,14 @@ public class TransactionController {
         return transactionService.getAllTRX();
     }
 
-    @GetMapping("/transaction")
-    public List<Transcation> findAllTranscationsById() {
-        return transactionService.getAllTRX();
+    @GetMapping("/transaction/{id}")
+    public List<Transcation> findAllTranscationsById(@PathVariable Long id) {
+        return transactionService.getAllTRXByID(id);
+    }
+
+    @GetMapping("/types/{type}")
+    public List<String> getListType(@PathVariable String type){
+        return transactionService.getType(type);
     }
 
 }
