@@ -70,6 +70,18 @@ public class ProductController {
         return map;
     }
 
+    @PostMapping("/detailProducts/{name}")
+    public List<Map> saveProducts(@PathVariable String name){
+        List<Map> detailList = null;
+        try {
+            detailList =this.productService.showDetailProduct(name);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return detailList;
+    }
+
+
 
 
 }

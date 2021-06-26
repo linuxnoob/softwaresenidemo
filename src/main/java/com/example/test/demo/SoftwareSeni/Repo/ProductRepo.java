@@ -23,4 +23,6 @@ public interface ProductRepo extends JpaRepository<Products, Integer> {
     /*@Query("Select c from Transcation c where c.name like %:name% order by c.name asc")
     List<Transcation> findByNameIgnoreContaining(String name);*/
 
+
+
 }
