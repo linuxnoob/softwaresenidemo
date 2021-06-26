@@ -1,7 +1,7 @@
 package com.example.test.demo.SoftwareSeni.Controller;
 
 
-import com.example.test.demo.SoftwareSeni.Entity.Product;
+import com.example.test.demo.SoftwareSeni.Entity.Products;
 import com.example.test.demo.SoftwareSeni.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,23 +17,23 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
-    @GetMapping("/getAlltransactions")
-    public List<Product> findAllProducts() {
+    @GetMapping("/getAllProducts")
+    public List<Products> findAllProducts() {
         return productService.getAllTRX();
     }
 
-    @GetMapping("/transaction/{id}")
+    @GetMapping("/product/{id}")
     List<Map> findAllProductsById(@PathVariable Integer id) {
         List<Map> mapList = new ArrayList<>();
         List returnList = this.productService.getAllTRXByID(id);
         if(returnList !=null){
-            Product product;
+            Products products;
             for(int i = 0; i < returnList.size(); i++){
                 Map resultMap = new HashMap();
-                product =(Product) returnList.get(i);
-                resultMap.put("price", product.getPrice());
-                resultMap.put("name", product.getName());
-                resultMap.put("description", product.getDescription());
+                products =(Products) returnList.get(i);
+                resultMap.put("price", products.getPrice());
+                resultMap.put("name", products.getName());
+                resultMap.put("description", products.getDescription());
                 mapList.add(resultMap);
             }
         }
@@ -41,28 +41,28 @@ public class ProductController {
     }
 
     @GetMapping("/name/{name}")
-    public List<Product> getListName(@PathVariable String name){
+    public List<Products> getListName(@PathVariable String name){
         return productService.getByName(name);
     }
 
-    @PostMapping("/saveProduct")
-    public Product saveProduct(@RequestBody Product product){
+    @PostMapping("/saveProducts")
+    public Products saveProducts(@RequestBody Products products){
         try {
-            this.productService.saveProduct(product);
+            this.productService.saveProducts(products);
         }catch (Exception e){
             e.printStackTrace();
         }
-        return product;
+        return products;
     }
 
-    @PutMapping("/transaction/{id}")
-    public Product updateProduct(@RequestBody Product product) {
-        return productService.updateProduct(product);
+    @PutMapping("/product/{id}")
+    public Products updateProducts(@RequestBody Products products) {
+        return productService.updateProducts(products);
     }
 
 
     @GetMapping("/sum/{category_id}")
-    public Map sumProductByCategory(@PathVariable Integer parent_id){
+    public Map sumProductsByCategory(@PathVariable Integer parent_id){
         Integer sum = this.productService.countTransactionByParentId(parent_id);
         Map map = new HashMap();
         map.put("sum", sum);

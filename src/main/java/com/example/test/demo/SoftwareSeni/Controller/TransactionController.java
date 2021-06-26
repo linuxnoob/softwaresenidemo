@@ -56,7 +56,7 @@ public class TransactionController {
     }
 
     @PutMapping("/transaction/{id}")
-    public Transcation updateProduct(@RequestBody Transcation transcation) {
+    public Transcation updateProducts(@RequestBody Transcation transcation) {
         return transactionService.updateTransaction(transcation);
     }
 

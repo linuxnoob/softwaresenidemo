@@ -16,7 +16,7 @@ import java.util.Date;
 @Entity
 
 
-public class Product {
+public class Products {
 
     @GeneratedValue
     @Id
