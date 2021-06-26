@@ -42,7 +42,7 @@ public class ProductService {
         return productRepo.save(products1);
     }
 
-    public Integer countTransactionByParentId(Integer category_id){
+    public Integer countProductByCategoryId(Integer category_id){
 
         Integer totalSum = 0;
         try {

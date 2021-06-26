@@ -61,11 +61,11 @@ public class ProductController {
     }
 
 
-    @GetMapping("/sum/{category_id}")
-    public Map sumProductsByCategory(@PathVariable Integer parent_id){
-        Integer sum = this.productService.countTransactionByParentId(parent_id);
+    @GetMapping("/sumProduct/{category_id}")
+    public Map sumProductsByCategory(@PathVariable Integer category_id){
+        Integer sum = this.productService.countProductByCategoryId(category_id);
         Map map = new HashMap();
-        map.put("sum", sum);
+        map.put("totalProduct", sum);
 
         return map;
     }
