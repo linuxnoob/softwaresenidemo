@@ -4,6 +4,7 @@ import com.example.test.demo.SoftwareSeni.Entity.Category;
 import com.example.test.demo.SoftwareSeni.Entity.Products;
 import com.example.test.demo.SoftwareSeni.Repo.CategoryRepo;
 import com.example.test.demo.SoftwareSeni.Repo.ProductRepo;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@RequiredArgsConstructor
 public class ProductService {
 
     @Autowired

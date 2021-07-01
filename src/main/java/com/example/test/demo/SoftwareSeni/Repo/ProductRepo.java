@@ -15,6 +15,9 @@ public interface ProductRepo extends JpaRepository<Products, Integer> {
     @Query("Select p from Products p where p.name like %:name%")
     List<Products> findTypeProductsContaining(String name);
 
+    @Query("Select p from Products p where p.name like %:name%")
+    Products findTypeProductsByName(String name);
+
     @Query("Select COUNT(id) from Products  where category_id = :category_id")
     Double countProductsByCategoryId(Integer category_id);
 
@@ -24,5 +27,6 @@ public interface ProductRepo extends JpaRepository<Products, Integer> {
     List<Transcation> findByNameIgnoreContaining(String name);*/
 
 
-
+    @Query("Select avg(price) from Products where category_id = :category_id and isExist = :isExist")
+    Double findAveragaePrice(Integer category_id, Boolean isExist);
 }

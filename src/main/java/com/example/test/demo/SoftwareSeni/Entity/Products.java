@@ -1,6 +1,7 @@
 package com.example.test.demo.SoftwareSeni.Entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
+@Builder
 
 public class Products {
 
@@ -27,6 +28,22 @@ public class Products {
     private Integer category_id;
     private Timestamp created;
     private Timestamp modified;
+    private Boolean isExist;
+
+    public Products(Integer id, String name, String description, Double price) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
+
+    public Boolean getExist() {
+        return isExist;
+    }
+
+    public void setExist(Boolean exist) {
+        isExist = exist;
+    }
 
     public Integer getId() {
         return id;

@@ -13,14 +13,14 @@ class ApplicationTests {
 	void contextLoads() {
 	}
 
-	@Test
+	/*@Test
 	public void getAllTranscation(){
 		String endpoint = "http://localhost:8080/getAlltransactions";
 		var response = given().when().get(endpoint).then();
 		response.log().body();
-	}
+	}*/
 
-	@Test
+	/*@Test
 	public void getTransactionByID(){
 		String endpoint="http://localhost:8080/transaction/" ;
 		var response =
@@ -31,5 +31,5 @@ class ApplicationTests {
 						then();
 		response.log().body();
 	}
-
+*/
 }
